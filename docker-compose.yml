@@ -1,0 +1,29 @@
+version: "3"
+services:
+  servidor1:
+    build:
+      context: ./servidor1
+      dockerfile: Dockerfile
+    container_name: servidor1
+    ports:
+      - 5007:5002
+    networks:
+      - red1
+    volumes:
+      - ./datos:/app/data
+
+  servidor2:
+    build:
+      context: ./servidor2
+      dockerfile: Dockerfile
+    container_name: servidor2
+    ports:
+      - 5008:5003
+    networks:
+      - red1
+
+networks:
+  red1:
+
+volumes:
+  datos:
